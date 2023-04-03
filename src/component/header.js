@@ -11,6 +11,10 @@ export default function header() {
           <NavLink className="p-2 float-right" to="/">
             Home
           </NavLink>
+
+          <NavLink className="p-2 float-right" to="/movie">
+            Movie
+          </NavLink>
         </nav>
       </div>
     </header>

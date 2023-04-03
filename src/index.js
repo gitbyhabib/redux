@@ -4,16 +4,20 @@ import App from "./App";
 
 import { Provider } from "react-redux";
 
-import { applyMiddleware } from "redux";
 import { configureStore } from "@reduxjs/toolkit";
 
 import reducer from "./store/reducers";
+import promiseMiddleware from "redux-promise";
 
-const createsotorewithmiddleware = applyMiddleware()(configureStore);
+const reduxStore = configureStore({
+  reducer: reducer,
+  middleware: [promiseMiddleware],
+  devTools: process.env.NODE_ENV !== "production",
+});
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <Provider store={createsotorewithmiddleware(reducer)}>
+  <Provider store={reduxStore}>
     <App />
   </Provider>
 );
